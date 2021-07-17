@@ -3,16 +3,16 @@
     <div class="card-thumb"> 
 
         <img class="card-image" src="{{flag}}" alt="{{name}}">
-        <h2 class="card-title">{{name}}</h2>
+        <h2>{{name}}</h2>
     </div>
 
- <div class="card-body">
-    <p class="card-text">Capital: {{capital}}</p>
-    <p class="card-text">Population: {{population}}</p>
-    <p class="card-text">Languages:</p>
-    <ul class="list-group">
+ <div>
+    <p class="card-text"><b>Capital:</b> {{capital}}</p>
+    <p class="card-text"><b>Population:</b> {{population}}</p>
+    <p class="card-text"><b>Languages:</b></p>
+    <ul>
         {{#each languages}}
-        <li class="list-item">{{this.name}}</li>
+        <li>{{this.name}}</li>
          {{/each}}
     </ul>
 
