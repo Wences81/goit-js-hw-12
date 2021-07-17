@@ -16,8 +16,7 @@ refs.inputSearch.addEventListener('input', debounce(onSearch, DEBOUNCE_DELAY));
 function onSearch(e) {
     const name = refs.inputSearch.value;
     refs.countryInfo.innerHTML = '';
-    refs.countryList.innerHTML = '';
-
+    
     API.fetchCountry(name)
         .then(renderCountryCard)
         .catch(error => console.log(error))
@@ -36,10 +35,11 @@ function renderCountryCard(name) {
         getErrorMessage('Oops, there is no country with that name');
 
     } else {
-        refs.countryList.innerHTML = countriesTpl(name);
-
+        refs.countryInfo.innerHTML = countriesTpl(name);
     }
-}
+        }
+
+
 
 
 function getInfoMessage(message) {
