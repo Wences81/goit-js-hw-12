@@ -24,7 +24,7 @@ function onSearch(e) {
 }
 
 function renderCountryCard(name) {
-    if (name.langth === 1) {
+    if (name.length === 1) {
         const markup = name[0];
         refs.countryInfo.insertAdjacentHTML('beforeend', countryCardTpl(markup));
 
