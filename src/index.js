@@ -14,13 +14,24 @@ const refs = getRefs();
 refs.inputSearch.addEventListener('input', debounce(onSearch, DEBOUNCE_DELAY));
 
 function onSearch(e) {
+    e.preventDefault()
     const name = refs.inputSearch.value;
     refs.countryInfo.innerHTML = '';
+    const searchQuery = e.target.value;
+
     
-    API.fetchCountry(name)
-        .then(renderCountryCard)
-        .catch(error => console.log(error))
+
+    // if (name === ' ') {
+    //     return Notiflix.Notify.failure('Please enter something');
+    // }
+    // else {
+    if(searchQuery.trim() !== '') {
     
+        API.fetchCountry(name)
+            .then(renderCountryCard)
+            .catch(error => console.log(error))
+    
+    }
 }
 
 function renderCountryCard(name) {
@@ -33,6 +44,8 @@ function renderCountryCard(name) {
 
     } else if (name.status === 404) {
         getErrorMessage('Oops, there is no country with that name');
+
+    
 
     } else {
         refs.countryInfo.innerHTML = countriesTpl(name);
